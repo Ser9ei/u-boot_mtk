@@ -6,13 +6,14 @@
 #### Preparing Toolchain
 
 For MT7621 U-Boot:
-- extract 'toolchain/mips-2012.03.tar.bz2' to /opt
+- extract 'toolchain/mips-2012.03.tar.bz2' to /opt (tar -xvf toolchain/mips-2012.03.tar.xz -C /opt/)
 
 For RT3XXX/MT7620/MT7628/MT7688 U-Boot:
 - extract 'toolchain/buildroot-gcc342.tar.bz2' to /opt
 
 Both toolchains require x86 (32-bit) Linux environment. If you are on x64 (64-bit)
 environment you need to do the following:
+Ubuntu 18.04 or Debian 9,10
 ```
 dpkg --add-architecture i386
 
@@ -21,7 +22,7 @@ apt install libc6:i386 libncurses5:i386 libstdc++6:i386
 
 #### Build Instructions
 
-- Copy appropriate '.config' file (e.g. profiles/ASUS/RT-N11P/.config)
+- Copy appropriate '.config' file (e.g. profiles/XIAOMI/MI-R4AG_SPI/.config)
   to 'uboot-5.x.x.x' dir.
 - Goto 'uboot-5.x.x.x' dir.
 - Run 'make menuconfig', choose [Exit] and confirm [Save]. This is important step!
@@ -84,16 +85,10 @@ Double check the boot partition name 'Bootloader' by 'cat /proc/mtd', usually it
 
 3. Also you can use TFTP client or ASUS Firmware Restoration (device IP-address is 192.168.1.1). Some devices with usb
    port can also support Recovery from USB storage.
-4. If your device has a dedicated WPS button you can press and hold the WPS button on Power-On to perform erase 'Config'
-   partition (U-Boot Env & NVRAM) and self-reboot. Of cource you have to set the WPS gpio properly during .config state.
 
 NOTE:
 - U-Boot will perform switch to Recovery mode on flash content integrity fail.
 - Alert LED(s) is blinking in Recovery mode and on erasing/flashing.
 - To Recovery from USB storage, place FW image with a filename 'root_uImage' to first
   FAT16/FAT32 partition, plug-in USB2 pen and switch to Recovery mode (see 3).
-- Recovery from USB storage is not supported for ASUS RT-N65U (external USB chip).
-- This U-Boot on default load firmware from 0x50000. So your partition layout will be
-  something like [this](https://gist.github.com/shibajee/6812bab70dde591506e58ea215041544).
 
-                             GOOD LUCK!
