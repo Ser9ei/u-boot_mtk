@@ -53,19 +53,64 @@ NOTE:
 
 #### Flash Instructions
 
+Take a backup of the current u-boot partition (`mtd0`):
+
+  ```
+  root@OpenWrt:/tmp# dd if=/dev/mtd0 of=uboot_orig.bin
+  256+0 records in
+  256+0 records out
+  ```
+
+Transfer the backup off the device and to a safe place:
+
+  ```
+  me@laptop:~# scp root@192.168.1.1:/tmp/uboot_orig.bin .
+  uboot_orig.bin                                100%  128KB 128.0KB/s   00:00
+  ```
+
+**Beware**: This step may differ for other devices. I'm using TP-Link TL-MR3220v2 and it uses the first 64 KiB block to store compressed U-Boot image. In the second 64 KiB block they store additional information like MAC address, model number and WPS pin number. This means the old backup is bigger than the new one we're going to flash. To store the old settings we're going to modify only the compressed U-Boot image and leave the additional information intact. To do that, take a copy of the original file, and copy the new image over it without truncating the leftover bytes:
+
+  ```
+  root@OpenWrt:/tmp# cp uboot_orig.bin uboot_new.bin
+  root@OpenWrt:/tmp# dd if=uboot_for_tp-link_tl-mr3220_v2.bin of=uboot_new.bin conv=notrunc
+  128+0 records in
+  128+0 records out
+  ```
+
+**Danger**: This is the point of no return, if you have any errors or problems, please revert the original image at any time using:
+
+  ```
+  root@OpenWrt:/tmp# mtd write uboot_orig.bin "u-boot"
+  Unlocking u-boot ...
+
+  Writing from uboot_orig.bin to u-boot ...
+  ```
+
+Now, to actually flash the new image, run:
+
+  ```
+  root@OpenWrt:/tmp# mtd write uboot_new.bin "u-boot"
+  Unlocking u-boot ...
+
+  Writing from uboot_new.bin to u-boot ...
+  ```
+
+To verify that the image was flashed correctly, you should verify it:
+
+  ```
+  root@OpenWrt:/tmp# mtd verify uboot_new.bin "u-boot"
+  Verifying u-boot against uboot_new.bin ...
+  a80c3a8683345a3fb311555c5d4194c5 - u-boot
+  a80c3a8683345a3fb311555c5d4194c5 - uboot_new.bin
+  Success
+  ```
+
 - Upload appropriate U-Boot image file to router's /tmp dir (e.g. via WinSCP or just wget it by creating a local http server).
 - Check U-Boot image checksum and compare with uboot.md5:
 ```
 md5sum /tmp/uboot.bin
 ```
-- Flash checked U-Boot via SSH or Telnet console (flash duration ~3 sec):
-```
-mtd write /tmp/uboot.bin Bootloader
-```
-or in some boards
-```
-mtd_write write /tmp/uboot.bin Bootloader
-```
+
 Double check the boot partition name 'Bootloader' by 'cat /proc/mtd', usually it's on /dev/mtd0 or sometimes mtd1.
 - Reboot router.
 
