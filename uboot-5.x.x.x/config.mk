@@ -773,7 +773,7 @@ CFLAGS += -Wno-unused -Wno-unused-variable -Wno-unused-but-set-variable
 AFLAGS_DEBUG := -Wa,-gstabs
 AFLAGS := $(AFLAGS_DEBUG) -D__ASSEMBLY__ $(CPPFLAGS)
 ifeq ($(CONFIG_TINY_UBOOT), y)
-CONFIG_CROSS_COMPILER_PATH = /opt/buildroot-gcc463/usr/bin
+CONFIG_CROSS_COMPILER_PATH = $HOME/toolchain/buildroot-gcc463/usr/bin
 CFLAGS += -fpic -G0 -mips16 -fomit-frame-pointer -mno-long-calls -DCONFIG_TINY_UBOOT -DCONFIG_MIPS16
 AFLAGS += -fpic -mabicalls
 endif

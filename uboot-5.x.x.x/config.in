@@ -1,7 +1,7 @@
 if [ "$MT7621_FPGA_BOARD" = "y" -o "$MT7621_ASIC_BOARD" = "y" ]; then
-string 'Cross Compiler Path' CONFIG_CROSS_COMPILER_PATH  /opt/mips-2012.03/bin
+string 'Cross Compiler Path' CONFIG_CROSS_COMPILER_PATH  $HOME/toolchain/mips-2012.03/bin
 else
-string 'Cross Compiler Path' CONFIG_CROSS_COMPILER_PATH  /opt/buildroot-gcc342/bin
+string 'Cross Compiler Path' CONFIG_CROSS_COMPILER_PATH  $HOME/toolchain/buildroot-gcc342/bin
 fi
 comment ""
 

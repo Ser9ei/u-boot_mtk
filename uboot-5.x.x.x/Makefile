@@ -45,9 +45,9 @@ TOPDIR	:= $(shell if [ "$$PWD" != "" ]; then echo $$PWD; else pwd; fi)
 export	TOPDIR
 
 ifeq ($(MT7621_MP), y)
-CONFIG_CROSS_COMPILER_PATH ?= /opt/mips-2012.03/bin
+CONFIG_CROSS_COMPILER_PATH ?= $HOME/toolchain/mips-2012.03/bin
 else
-CONFIG_CROSS_COMPILER_PATH ?= /opt/buildroot-gcc342/bin
+CONFIG_CROSS_COMPILER_PATH ?= $HOME/toolchain/buildroot-gcc342/bin
 endif
 
 ifeq (include/config.mk,$(wildcard include/config.mk))
