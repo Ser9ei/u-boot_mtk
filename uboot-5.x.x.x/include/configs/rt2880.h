@@ -172,7 +172,7 @@ extern unsigned int  CFG_BLOCKSIZE;
 #define CFG_CONSOLE_INFO_QUIET	
 #define	CFG_LOAD_ADDR		(CFG_SDRAM_BASE + (gd->ram_size)/2)	/* default load address	*/
 
-#if defined (RT2880_FPGA_BOARD) || defined (RT2880_ASIC_BOARD)
+#if defined (RT2880_FPGA_BOARD) || defined (RT2880_ASIC_BOARD defined || (MT7621_FPGA_BOARD) || defined (MT7621_ASIC_BOARD)
 #define CFG_HTTP_DL_ADDR	0x8A300000
 #define CFG_MEMTEST_START	0x8A100000
 #define CFG_MEMTEST_END		0x8A400000
