@@ -58,7 +58,10 @@ extern int skge_initialize(bd_t*);
 extern int tsec_initialize(bd_t*, int);
 extern int rt2880_eth_initialize(bd_t *bis);
 
-static struct eth_device *eth_devices, *eth_current;
+/*static struct eth_device *eth_devices, *eth_current;*/
+
+static struct eth_device *eth_devices;
+struct eth_device *eth_current;
 
 void eth_parse_enetaddr(const char *addr, uchar *enetaddr)
 {
