@@ -1291,15 +1291,16 @@ void NetReceive(volatile uchar * inpkt, int len){
 #endif
 
 #ifdef CONFIG_NET_VLAN
-	if ((myvlanid & VLAN_IDMASK) != VLAN_NONE) {
-		if (vlanid == VLAN_NONE)
+	if((myvlanid & VLAN_IDMASK) != VLAN_NONE){
+		if(vlanid == VLAN_NONE){
 			vlanid = (mynvlanid & VLAN_IDMASK);
+		}
 		/* not matched? */
-		if (vlanid != (myvlanid & VLAN_IDMASK))
+		if(vlanid != (myvlanid & VLAN_IDMASK)){
 			return;
+		}
 	}
 #endif
-}
 
 	switch(x){
 
