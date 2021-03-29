@@ -1301,7 +1301,7 @@ void NetReceive(volatile uchar * inpkt, int len){
 #endif
 }
 
-	switch (x) {
+	switch(x){
 
 	case PROT_ARP:
 		/*
