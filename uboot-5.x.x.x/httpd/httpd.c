@@ -193,12 +193,12 @@ static int httpd_findandstore_firstchunk(void){
 					webfailsafe_upload_failed = 1;
 
 				// firmware can't exceed: (FLASH_SIZE -  WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES)
-				} /*else if(hs->upload_total > (info->size - WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES)){
+				} else if(hs->upload_total > (info->size - WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES)){
 
 					printf("*** ERROR: file too big!\n");
 					webfailsafe_upload_failed = 1;
 
-				}*/
+				}
 
 				printf("Loading: ");
 
