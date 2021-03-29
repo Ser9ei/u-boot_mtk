@@ -1539,7 +1539,7 @@ fi
 
 #bool "Tiny Uboot" CONFIG_TINY_UBOOT
 
-#bool "Dual Image" DUAL_IMAGE_SUPPORT
+bool "Dual Image" DUAL_IMAGE_SUPPORT
 
 bool "USB Recovery" USB_RECOVERY_SUPPORT
 
