@@ -107,7 +107,6 @@ extern unsigned int  CFG_BLOCKSIZE;
 #define CONFIG_NETCONSOLE_PORT 6666
 /* Ethernet related */
 #define CONFIG_NET_MULTI	1
-#define CFG_RX_ETH_BUFFER	16
 /* valid baudrates */
 #define CFG_BAUDRATE_TABLE	{ 9600, 19200, 38400, 57600, 115200 }
 
@@ -120,30 +119,6 @@ extern unsigned int  CFG_BLOCKSIZE;
 #define CONFIG_BOOTFILE	firmware.bin
 
 #include <cmd_confdefs.h>
-
-/* Available commands */
-#define CONFIG_CMD_BOOTD
-#define CONFIG_CMD_BUTTON
-#define CONFIG_CMD_DATE
-#define CONFIG_CMD_DHCP
-#define CONFIG_CMD_ECHO
-#define CONFIG_CMD_ENV
-#define CONFIG_CMD_FLASH
-#define CONFIG_CMD_GPIO
-#define CONFIG_CMD_HTTPD
-#define CONFIG_CMD_IMI
-#define CONFIG_CMD_ITEST
-#define CONFIG_CMD_LED
-#define CONFIG_CMD_LOADB
-#define CONFIG_CMD_MAC
-#define CONFIG_CMD_MEMORY
-#define CONFIG_CMD_NET
-#define CONFIG_CMD_PING
-#define CONFIG_CMD_RSTBYWDT
-#define CONFIG_CMD_RUN
-#define CONFIG_CMD_SETEXPR
-#define CONFIG_CMD_SLEEP
-#define CONFIG_CMD_SNTP
 
 /*
  * Miscellaneous configurable options
