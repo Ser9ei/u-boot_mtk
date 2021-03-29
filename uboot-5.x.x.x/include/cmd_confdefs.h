@@ -146,7 +146,6 @@
 			CFG_CMD_PORTIO	| \
 			CFG_CMD_REGINFO | \
 			CFG_CMD_REISER	| \
-			CFG_CMD_RUN	| \
 			CFG_CMD_SAVES	| \
 			CFG_CMD_SCSI	| \
 			CFG_CMD_SDRAM	| \
