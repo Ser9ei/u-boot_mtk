@@ -76,10 +76,10 @@ void eth_parse_enetaddr(const char *addr, uchar *enetaddr)
 }
 
 #ifdef CONFIG_NET_MULTI
-struct eth_device *eth_get_dev(void)
+/*struct eth_device *eth_get_dev(void)
 {
 	return eth_current;
-}
+}*/
 
 int eth_get_dev_index (void)
 {
