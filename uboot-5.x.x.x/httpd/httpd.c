@@ -38,7 +38,7 @@ extern int webfailsafe_upgrade_type;
 extern ulong NetBootFileXferSize;
 extern unsigned char *webfailsafe_data_pointer;
 
-// extern flash_info_t flash_info[CFG_MAX_FLASH_BANKS];
+extern flash_info_t flash_info[];
 
 // http app state
 struct httpd_state *hs;
@@ -103,7 +103,7 @@ static void httpd_state_reset(void){
 static int httpd_findandstore_firstchunk(void){
 	char *start = NULL;
 	char *end = NULL;
-	// flash_info_t *info = &flash_info[0];
+	flash_info_t *info = &flash_info[0];
 
 	if(!boundary_value){
 		return(0);
@@ -147,7 +147,7 @@ static int httpd_findandstore_firstchunk(void){
 #else
 					printf("Upgrade type: FACTORY\n");
 					webfailsafe_upgrade_type = WEBFAILSAFE_UPGRADE_TYPE_FACTORY;
-#endif /* if defined(WEBFAILSAFE_DISABLE_FACTORY_UPGRADE) */
+#endif
 				} else {
 
 					printf("*** ERROR: input name not found!\n");
@@ -193,10 +193,10 @@ static int httpd_findandstore_firstchunk(void){
 					webfailsafe_upload_failed = 1;
 
 				// firmware can't exceed: (FLASH_SIZE -  WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES)
-				} else if(hs->upload_total > (info->size - WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES)){
+				/*} else if(hs->upload_total > (info->size - WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES)){
 
 					printf("*** ERROR: file too big!\n");
-					webfailsafe_upload_failed = 1;
+					webfailsafe_upload_failed = 1;*/
 
 				}
 
