@@ -294,9 +294,8 @@ void ArpTimeoutCheck(void)
  */
 
 
-int
-NetLoop(proto_t protocol)
-{
+int NetLoop(proto_t protocol){
+	
 	DECLARE_GLOBAL_DATA_PTR;
 
 	bd_t *bd = gd->bd;

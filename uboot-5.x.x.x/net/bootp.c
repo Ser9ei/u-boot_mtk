@@ -24,7 +24,7 @@
 #include <net.h>
 #include "bootp.h"
 #include "tftp.h"
-//#include "nfs.h"
+#include "nfs.h"
 #ifdef CONFIG_STATUS_LED
 #include <status_led.h>
 #endif
@@ -47,10 +47,10 @@
 #define CONFIG_DHCP_MIN_EXT_LEN 64
 #endif
 
-ulong		BootpID;
-int		BootpTry;
+ulong BootpID;
+int BootpTry;
 #ifdef CONFIG_BOOTP_RANDOM_DELAY
-ulong		seed1, seed2;
+ulong seed1, seed2;
 #endif
 
 #if (CONFIG_COMMANDS & CFG_CMD_DHCP)
@@ -573,7 +573,7 @@ BootpRequest (void)
 	uchar tmp[64];
 	ulong tst1, tst2, sum, m_mask, m_value = 0;
 
-	if (BootpTry ==0) {
+	if (BootpTry == 0) {
 		/* get our mac */
 		reg = getenv_r ("ethaddr", tmp, sizeof(tmp));
 		s = (reg > 0) ? tmp : NULL;
