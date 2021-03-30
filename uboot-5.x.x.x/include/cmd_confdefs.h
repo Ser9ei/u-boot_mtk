@@ -115,7 +115,6 @@
 			CFG_CMD_CACHE	| \
 			CFG_CMD_CDP	| \
 			CFG_CMD_DATE	| \
-			CFG_CMD_DHCP	| \
 			CFG_CMD_DIAG	| \
 			CFG_CMD_DOC	| \
 			CFG_CMD_DTT	| \
@@ -142,7 +141,6 @@
 			CFG_CMD_NFS	| \
 			CFG_CMD_PCI	| \
 			CFG_CMD_PCMCIA	| \
-			CFG_CMD_PING	| \
 			CFG_CMD_PORTIO	| \
 			CFG_CMD_REGINFO | \
 			CFG_CMD_REISER	| \
