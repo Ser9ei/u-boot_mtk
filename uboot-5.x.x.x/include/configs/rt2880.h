@@ -409,7 +409,7 @@ extern unsigned int  CFG_BLOCKSIZE;
 #define CONFIG_FLASH_16BIT
 
 #define CONFIG_NR_DRAM_BANKS	1
-#define CFG_RX_ETH_BUFFER		16
+#define CFG_RX_ETH_BUFFER		60
 
 /*-----------------------------------------------------------------------
  * Cache Configuration
