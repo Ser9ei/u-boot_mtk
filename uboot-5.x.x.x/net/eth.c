@@ -239,14 +239,10 @@ int eth_initialize(bd_t *bis)
 				puts (" [PRIME]");
 			}
 
-#ifdef MT7621_ASIC_BOARD
-#define GMAC0_OFFSET    0xe000
-#define GDMA1_MAC_ADRL  0xe004
-#define GDMA1_MAC_ADRH  0xe008
+#if defined (MT7621_MP)
+#define GMAC0_OFFSET	0xE000
 #else
-#define GMAC0_OFFSET    0x28
-#define GDMA1_MAC_ADRL  0x2C
-#define GDMA1_MAC_ADRH  0x30
+#define GMAC0_OFFSET	0x28
 #endif
 
 			//get Ethernet mac address from flash
@@ -268,14 +264,6 @@ int eth_initialize(bd_t *bis)
 				eth_parse_enetaddr(CONFIG_ETHADDR, rt2880_gmac1_mac);
 
 			memcpy(dev->enetaddr, rt2880_gmac1_mac, 6);
-			
-			//set my mac to gdma register
-			regValue = (rt2880_gmac1_mac[0] << 8)|(rt2880_gmac1_mac[1]);
-			*(volatile u_long *)(dev->iobase + GDMA1_MAC_ADRH)= regValue;
-
-			regValue = (rt2880_gmac1_mac[2] << 24) | (rt2880_gmac1_mac[3] <<16) | 
-			           (rt2880_gmac1_mac[4] << 8) | rt2880_gmac1_mac[5];
-			*(volatile u_long *)(dev->iobase + GDMA1_MAC_ADRL)= regValue;
 
 			eth_number++;
 			dev = dev->next;
