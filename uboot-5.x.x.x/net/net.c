@@ -88,6 +88,8 @@
 #include "../httpd/uipopt.h"
 #include "../httpd/uip.h"
 #include "../httpd/uip_arp.h"
+#include "../httpd/fs.h"
+#include "../httpd/fsdata.h"
 
 unsigned char *webfailsafe_data_pointer = NULL;
 int     webfailsafe_is_running = 0;
@@ -100,10 +102,10 @@ extern int do_reset(cmd_tbl_t *cmdtp, int flag, int argc, char *argv[]);
 #endif
 
 #if (CONFIG_COMMANDS & CFG_CMD_NET)
-
-#define ARP_TIMEOUT		4UL		/* Seconds before trying ARP again */
+DECLARE_GLOBAL_DATA_PTR;
+#define ARP_TIMEOUT		3		/* Seconds before trying ARP again */
 #ifndef	CONFIG_NET_RETRY_COUNT
-# define ARP_TIMEOUT_COUNT	6		/* # of timeouts before giving up  */
+# define ARP_TIMEOUT_COUNT	8		/* # of timeouts before giving up  */
 #else
 # define ARP_TIMEOUT_COUNT  (CONFIG_NET_RETRY_COUNT)
 #endif
@@ -168,6 +170,11 @@ static void PingStart(void);
 #if (CONFIG_COMMANDS & CFG_CMD_CDP)
 static void CDPStart(void);
 #endif
+
+#if (CONFIG_COMMANDS & CFG_CMD_SNTP)
+IPaddr_t NetNtpServerIP;	/* NTP server IP address */
+int NetTimeOffset = 0;		/* offset time from UTC */
+#endif /* CFG_CMD_SNTP */
 
 #ifdef CONFIG_NETCONSOLE
 void NcStart(void);

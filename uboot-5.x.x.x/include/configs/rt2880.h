@@ -105,8 +105,7 @@ extern unsigned int  CFG_BLOCKSIZE;
 #define CONFIG_ETHADDR "00:0C:43:30:52:11"
 #define CONFIG_NETCONSOLE 1
 #define CONFIG_NETCONSOLE_PORT 6666
-/* Ethernet related */
-#define CONFIG_NET_MULTI	1
+
 /* valid baudrates */
 #define CFG_BAUDRATE_TABLE	{ 9600, 19200, 38400, 57600, 115200 }
 
@@ -520,6 +519,11 @@ extern unsigned int  CFG_BLOCKSIZE;
 #endif /* RALINK_USB */
 
 #if defined (MT7621_ASIC_BOARD) || defined (MT7621_FPGA_BOARD)
+/* Ethernet related */
+#define CONFIG_NET_MULTI	1
+#define CONFIG_NET_VLAN
+#define milisecdelay(_x)			udelay((_x) * 1000)
+#define milisecdelay(_x)			udelay((_x) * 1000)
 //#define USE_PIO_DBG		1
 #endif
 
