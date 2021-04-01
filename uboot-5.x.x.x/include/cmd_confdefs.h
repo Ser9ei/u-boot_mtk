@@ -107,7 +107,6 @@
  * (memory hogs, requires special hardware, not fully tested, etc.)
  */
 #define CFG_CMD_NONSTD (CFG_CMD_ASKENV	| \
-			CFG_CMD_AUTOSCRIPT | \
 			CFG_CMD_BEDBUG	| \
 			CFG_CMD_BMP	| \
 			CFG_CMD_BOOTD	| \
@@ -136,7 +135,6 @@
 			CFG_CMD_JFFS2	| \
 			CFG_CMD_KGDB	| \
 			CFG_CMD_LOADS	| \
-			CFG_CMD_MII	| \
 			CFG_CMD_MMC	| \
 			CFG_CMD_NAND	| \
 			CFG_CMD_NFS	| \
