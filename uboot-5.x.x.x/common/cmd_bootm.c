@@ -241,8 +241,8 @@ int verify_kernel_image (ulong addr, ulong *pAddr, ulong *pData, ulong *pLen)
 #if defined (CFG_ENV_IS_IN_NAND)
 				addr += CFG_BLOCKSIZE;
 				if ((addr-CFG_FLASH_BASE) < 0x2000000) /* Suppose minimum NAND flash size 32MB */
-				{	
-					printf("Search header in next block address %x\n",addr-CFG_FLASH_BASE); 
+				{
+					printf("Search header in next block address %x\n",addr-CFG_FLASH_BASE);
 					continue;
 				}
 				else
@@ -347,7 +347,7 @@ int do_bootm (cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])
 			setenv("Image1Try", "1");
 		else {
 			char buf[32];
-			
+
 			i = (int)simple_strtoul(s, NULL, 10);
 			sprintf(buf, "%d", ++i);
 			setenv("Image1Try", buf);
@@ -437,6 +437,16 @@ int do_bootm (cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])
 	invalidate_l1_instruction_cache();
 	flush_data_cache();
 	dcache_disable();
+#endif
+
+#ifdef CONFIG_NETCONSOLE
+	/*
+	* Stop the ethernet stack if NetConsole could have
+	* left it up
+	*/
+	puts("Stopping network... ");
+	eth_halt();
+	puts("OK!\n");
 #endif
 
 	switch (hdr->ih_comp) {
@@ -1260,7 +1270,7 @@ static int image_info (ulong addr)
 		return 1;
 	}
 	puts ("OK\n");
-	
+
 	return 0;
 }
 #endif
@@ -1282,7 +1292,7 @@ U_BOOT_CMD(
  * List all images found in flash.
  */
 #ifdef RT2880_U_BOOT_CMD_OPEN
- 
+
 int do_imls (cmd_tbl_t *cmdtp, int flag, int argc, char *argv[])
 {
 
