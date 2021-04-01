@@ -119,6 +119,9 @@ extern unsigned int  CFG_BLOCKSIZE;
 
 #include <cmd_confdefs.h>
 
+/* Enable most commands */
+#define RT2880_U_BOOT_CMD_OPEN
+
 /*
  * Miscellaneous configurable options
  */
@@ -173,7 +176,7 @@ extern unsigned int  CFG_BLOCKSIZE;
 /*
  * for TEST
  */
-/*#define CFG_CONSOLE_INFO_QUIET	*/
+#define CFG_CONSOLE_INFO_QUIET
 #define	CFG_LOAD_ADDR		(CFG_SDRAM_BASE + (gd->ram_size)/2)	/* default load address	*/
 
 #if defined (RT2880_FPGA_BOARD) || defined (RT2880_ASIC_BOARD)
