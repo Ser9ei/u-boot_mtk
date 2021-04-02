@@ -525,7 +525,6 @@ extern unsigned int  CFG_BLOCKSIZE;
 #if defined (MT7621_ASIC_BOARD) || defined (MT7621_FPGA_BOARD)
 /* Ethernet related */
 #define CONFIG_NET_MULTI	1
-#define CONFIG_NET_VLAN
 #define milisecdelay(_x)			udelay((_x) * 1000)
 #define milisecdelay(_x)			udelay((_x) * 1000)
 //#define USE_PIO_DBG		1
