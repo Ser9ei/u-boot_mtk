@@ -311,8 +311,7 @@ static struct chip_info chips_data [] = {
 	{ "W25Q32BV",		0xef, 0x40160000, 64 * 1024, 64,  0 },//W25Q32FV
 	{ "W25X32VS",		0xef, 0x30160000, 64 * 1024, 64,  0 },
 	{ "W25Q64BV",		0xef, 0x40170000, 64 * 1024, 128,  0 }, //S25FL064K //W25Q64FV
-	{ "W25Q128FV",		0xef, 0x40180000, 64 * 1024, 256, 0 }, //W25Q128FV
-	{ "W25Q128BV",		0xef, 0x40180000, 64 * 1024, 256, 0 }, //W25Q128FV Xiaomi
+	{ "W25Q128BV",		0xef, 0x40180000, 64 * 1024, 256, 0 }, //W25Q128FV/BV
 #ifndef NO_4B_ADDRESS_SUPPORT
 	{ "W25Q256FV",		0xef, 0x40190000, 64 * 1024, 512, 1 },
 #endif
