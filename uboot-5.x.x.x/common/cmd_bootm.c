@@ -158,7 +158,7 @@ extern void lynxkdi_boot( image_header_t * );
 #endif
 
 image_header_t header;
-ulong load_addr = 0x80200000;	/* Default Load Address */
+ulong load_addr = CFG_SPINAND_LOAD_ADDR;	/* Default Load Address */
 static ulong lastAddr = 0;
 static ulong lastData = 0;
 static ulong lastLen = 0;

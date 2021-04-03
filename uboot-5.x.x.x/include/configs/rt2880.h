@@ -189,7 +189,11 @@ extern unsigned int  CFG_BLOCKSIZE;
 #if defined(RT6855A_FPGA_BOARD) || defined(RT6855A_ASIC_BOARD) || defined(MT7620_FPGA_BOARD) || defined(MT7620_ASIC_BOARD) || defined(MT7628_FPGA_BOARD) || defined(MT7628_ASIC_BOARD)
 #define CFG_SPINAND_LOAD_ADDR	0x80c00000
 #else
+#if defined(MT7621_ASIC_BOARD)
+#define CFG_SPINAND_LOAD_ADDR	0x82000000
+#else
 #define CFG_SPINAND_LOAD_ADDR	0x80500000
+#endif
 #endif
 
 #define CFG_MEMTEST_START	0x80100000
