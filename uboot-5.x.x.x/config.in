@@ -1409,6 +1409,8 @@ fi
 
 if [ "$ON_BOARD_SPI_FLASH_COMPONENT" = "y" ]; then
 	bool "Use 50MHz SPI clock" SPI_FAST_CLOCK
+	bool "Use SPI flash fast read mode" SPI_FLASH_READ_FAST
+	bool "Use SPI flash quad read mode" SPI_FLASH_READ_QOR
 fi
 
 if [ "$DUAL_IMAGE_SUPPORT" = "y" ]; then
