@@ -348,7 +348,10 @@ int NetLoop(proto_t protocol){
 				return (-1);
 			}
 			NetRxPackets[i] = buf->pbuf;
-			//printf("\n NetRxPackets[%d] = 0x%08X\n",i,NetRxPackets[i]);
+			
+			#ifdef DEBUG
+			printf("\n NetRxPackets[%d] = 0x%08X\n",i,NetRxPackets[i]);
+			#endif
 		}
 	}
 	
@@ -1964,6 +1967,10 @@ int NetLoopHttpd( void ){
 				return ( -1 );
 			}
 			NetRxPackets[i] = buf->pbuf;
+			
+			#ifdef DEBUG
+			printf("\n NetRxPackets[%d] = 0x%08X\n",i,NetRxPackets[i]);
+			#endif
 		}
 	}
 	
