@@ -27,7 +27,7 @@ include $(TOPDIR)/config.mk
 
 LIB	= libnet.a
 
-OBJS	= net.o tftp.o eth.o
+OBJS	= net.o tftp.o eth.o bootp.o sntp.o rarp.o
 ifeq ($(HTTPD_SUPPORT),y)
 OBJS	+= httpd.o
 endif
