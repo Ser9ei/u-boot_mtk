@@ -353,8 +353,10 @@ int NetLoop(proto_t protocol){
 	}
 	
 	NetTxPacket = KSEG1ADDR(NetTxPacket);
-
+	
+	#ifdef DEBUG
 	printf("\n KSEG1ADDR(NetTxPacket) = 0x%08X \n",NetTxPacket);
+	#endif
 
 	if (!NetArpWaitTxPacket) {
 		NetArpWaitTxPacket = &NetArpWaitPacketBuf[0] + (PKTALIGN - 1);
@@ -1966,9 +1968,11 @@ int NetLoopHttpd( void ){
 	}
 	
 	NetTxPacket = KSEG1ADDR( NetTxPacket );
-
+	
+	#ifdef DEBUG
 	printf("\n KSEG1ADDR(NetTxPacket) = 0x%08X \n",NetTxPacket);
-
+	#endif
+	
 	if ( !NetArpWaitTxPacket ) {
 		NetArpWaitTxPacket = &NetArpWaitPacketBuf[0] + ( PKTALIGN - 1 );
 		NetArpWaitTxPacket -= ( ulong )NetArpWaitTxPacket % PKTALIGN;
