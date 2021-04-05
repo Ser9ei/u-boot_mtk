@@ -355,19 +355,23 @@ int NetLoop(proto_t protocol){
 		NetArpWaitTxPacket -= (ulong)NetArpWaitTxPacket % PKTALIGN;
 		NetArpWaitTxPacketSize = 0;
 	}
-	printf("\n NetLoop,call eth_halt ! \n");
-	eth_halt();
+	
+	if (eth_is_on_demand_init()) {
+		eth_halt();
 #ifdef CONFIG_NET_MULTI
-	eth_set_current();
+		eth_set_current();
 #endif
-	printf("\n NetLoop,call eth_init ! \n");
-	if (eth_init(bd) < 0)
-	{
-	    printf("\n eth_init is fail !!\n");
-		return(-1);
-	}	
+		if(!eth_init(bd)){
+			eth_halt();
+			return(-1);
+		}
+	} else {
+		eth_init_state_only(bd);
+	}
 
-restart:
+	/* restart label */
+	restart:
+	
 #ifdef CONFIG_NET_MULTI
 	memcpy (NetOurEther, eth_get_dev()->enetaddr, 6);
 #else
