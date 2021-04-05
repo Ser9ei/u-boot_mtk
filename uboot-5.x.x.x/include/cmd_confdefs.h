@@ -114,7 +114,6 @@
 			CFG_CMD_CACHE	| \
 			CFG_CMD_CDP	| \
 			CFG_CMD_DATE	| \
-			CFG_CMD_DHCP	| \
 			CFG_CMD_DIAG	| \
 			CFG_CMD_DOC	| \
 			CFG_CMD_DTT	| \
