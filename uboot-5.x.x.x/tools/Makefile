@@ -1,9 +1,9 @@
 CFLAGS = -I./ -DUSE_HOSTCC
 
-all: mkimage
+all: mkimage ncb
 
 clean:
-	rm -f mkimage *.o
+	rm -f mkimage ncb *.o
 
 .c.o:
 	$(HOSTCC) $(CFLAGS) -c $^
@@ -13,4 +13,6 @@ clean:
 mkimage: mkimage.o crc32.o crc.o
 	$(HOSTCC) -o $@ $^
 
+ncb: ncb.o
+	$(HOSTCC) -o $@ $^
 
