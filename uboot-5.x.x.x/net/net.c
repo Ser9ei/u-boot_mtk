@@ -416,11 +416,10 @@ int NetLoop(proto_t protocol){
 		NetOurVLAN = getenv_VLAN("vlan");
 		NetOurNativeVLAN = getenv_VLAN("nvlan");
 #endif
-		switch(protocol){
+
 #if defined(CONFIG_CMD_NFS)
 				case NFS:
 #endif
-				case NETCONS:
 		NetServerIP = getenv_IPaddr ("serverip");
 		break;
 
@@ -444,9 +443,6 @@ int NetLoop(proto_t protocol){
 					/* nothing */
 					break;
 #endif
-				default:
-					break;
-			}
 			
 			break;
 
@@ -1434,7 +1430,7 @@ void NetReceive(volatile uchar * inpkt, int len){
 				NetArpWaitPacketIP = 0;
 				NetArpWaitTxPacketSize = 0;
 				NetArpWaitPacketMAC = NULL;
-
+				
 				/* if Arp response requested by TFTP,
 				 * send "TFTP Read Request" packet 
 				 * immediately */
