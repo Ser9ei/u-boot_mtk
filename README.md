@@ -2,6 +2,7 @@
         RT3052/RT3352/RT3883/RT5350/MT7620/MT7621/MT7628/MT7688
                      Based on MediaTek SDK 5.0.1.0
 
+! Fork from https://gitlab.com/db260179/u-boot-mt7621/-/tree/master/
 
 #### Preparing Toolchain
 
