@@ -2,13 +2,11 @@
         RT3052/RT3352/RT3883/RT5350/MT7620/MT7621/MT7628/MT7688
                      Based on MediaTek SDK 5.0.1.0
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !
 ! This is a Fork from https://gitlab.com/db260179/u-boot-mt7621/-/tree/master/
 ! New profile for the r4agv2/rb02 revision of the Xiaomi mi router 4a gigabit v2 was added
 ! Links to the uboot/factory/firmware updates pages to simple switch between html pages (see screenshots below) were added
 !
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #### Preparing Toolchain
 
