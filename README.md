@@ -2,7 +2,13 @@
         RT3052/RT3352/RT3883/RT5350/MT7620/MT7621/MT7628/MT7688
                      Based on MediaTek SDK 5.0.1.0
 
-! Fork from https://gitlab.com/db260179/u-boot-mt7621/-/tree/master/
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!
+! This is a Fork from https://gitlab.com/db260179/u-boot-mt7621/-/tree/master/
+! New profile for the r4agv2/rb02 revision of the Xiaomi mi router 4a gigabit v2 was added
+! Links to the uboot/factory/firmware updates pages to simple switch between html pages (see screenshots below) were added
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 #### Preparing Toolchain
 
@@ -126,8 +132,9 @@ Double check the boot partition name 'Bootloader' by 'cat /proc/mtd', usually it
    ipv4 to 192.168.1.2, subnet mask 255.255.255.0 and gateway 192.168.1.1.
 2. Go to 192.168.1.1 from any browser and upload or upgrade your firmware. You can also upgrade your factory and u-boot
    partition from 192.168.1.1/factory.html and 192.168.1.1/uboot.html respectively.
-
-<img src="https://i.imgur.com/qadrqTK.png" width="300" height="177"><img src="https://i.imgur.com/xLrROI2.png" width="300" height="177"><img src="https://i.imgur.com/eoB2H5P.png" width="300" height="177">
+![p1_firmware](https://user-images.githubusercontent.com/61657001/211550272-9ceafb1c-ac44-46fb-b075-481f90028733.jpg)
+![p2_uboot](https://user-images.githubusercontent.com/61657001/211550325-30a38f46-d1da-4cb3-8ec2-b4fe76e6bb80.jpg)
+![3_factory](https://user-images.githubusercontent.com/61657001/211550353-691cd6ec-b955-45d0-91ae-d2a6c4c97b74.jpg)
 
 3. Also you can use TFTP client or ASUS Firmware Restoration (device IP-address is 192.168.1.1). Some devices with usb
    port can also support Recovery from USB storage.
