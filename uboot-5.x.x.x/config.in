@@ -1,3 +1,7 @@
+if [ -n "$CONFIG_DESC" ]; then
+string 'Config description' CONFIG_DESC "new config"
+fi
+
 if [ "$MT7621_FPGA_BOARD" = "y" -o "$MT7621_ASIC_BOARD" = "y" ]; then
 string 'Cross Compiler Path' CONFIG_CROSS_COMPILER_PATH  $HOME/toolchain/mips-2012.03/bin
 else
@@ -1412,6 +1416,7 @@ if [ "$ON_BOARD_SPI_FLASH_COMPONENT" = "y" ]; then
 	bool "Use SPI flash fast read mode" SPI_FLASH_READ_FAST
 	bool "Use SPI flash double read mode" SPI_FLASH_READ_DOR
 	bool "Use SPI flash quad read mode" SPI_FLASH_READ_QOR
+	bool "Use SPI Bdata (64k) mtd partition before Factory" SPI_FLASH_BDATA64_BEFORE_FACTORY
 fi
 
 if [ "$DUAL_IMAGE_SUPPORT" = "y" ]; then
