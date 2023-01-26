@@ -6,7 +6,7 @@
 
 ! This is a Fork from https://gitlab.com/db260179/u-boot-mt7621/-/tree/master/
 
-! New profile for the r4agv2/rb02 revision of the Xiaomi mi router 4a gigabit v2 was added
+! New profile for the r4av2/rb02 revision of the Xiaomi mi router 4a gigabit v2 was added
 
 ! Links to the uboot/factory/firmware updates pages to simple switch between html pages (see screenshots below) were added
 
