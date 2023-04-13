@@ -135,9 +135,9 @@ Double check the boot partition name 'Bootloader' by 'cat /proc/mtd', usually it
 2. Go to 192.168.1.1 from any browser and upload or upgrade your firmware. You can also upgrade your factory and u-boot
    partition from 192.168.1.1/factory.html and 192.168.1.1/uboot.html respectively.
    For Xiaomi routers http server maybe reached by the 192.168.31.1 ip, it depend on envoriment from the Config/BootEnv partition values.
-![p1_firmware](https://user-images.githubusercontent.com/61657001/211550272-9ceafb1c-ac44-46fb-b075-481f90028733.jpg)
-![p2_uboot](https://user-images.githubusercontent.com/61657001/211550325-30a38f46-d1da-4cb3-8ec2-b4fe76e6bb80.jpg)
-![3_factory](https://user-images.githubusercontent.com/61657001/211550353-691cd6ec-b955-45d0-91ae-d2a6c4c97b74.jpg)
+![firmware](https://user-images.githubusercontent.com/61657001/231694117-161912d1-38ab-465a-b424-1948591c48ed.jpg)
+![uboot](https://user-images.githubusercontent.com/61657001/231694190-ee70e38d-673c-4eec-9328-42dc966e81b1.jpg)
+![factory](https://user-images.githubusercontent.com/61657001/231694218-3a3a6bd5-16ab-4556-803e-012cc8546efa.jpg)
 
 3. Also you can use TFTP client or ASUS Firmware Restoration (device IP-address is 192.168.1.1). Some devices with usb
    port can also support Recovery from USB storage.
