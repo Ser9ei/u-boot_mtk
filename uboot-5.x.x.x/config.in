@@ -967,6 +967,50 @@ if [ "$ON_BOARD_SPI_FLASH_COMPONENT" = "y" ]; then
 	bool "Use SPI flash double read mode" SPI_FLASH_READ_DOR
 fi
 
+if [ "$ON_BOARD_SPI_FLASH_COMPONENT" = "y" ]; then
+	comment "SPI partitions parameters"
+	choice "SPI Flash size" "2MB ON_BOARD_2M_FLASH_COMPONENT \
+				 4MB ON_BOARD_4M_FLASH_COMPONENT \
+				 8MB ON_BOARD_8M_FLASH_COMPONENT \
+				 16MB ON_BOARD_16M_FLASH_COMPONENT \
+				 32MB ON_BOARD_32M_FLASH_COMPONENT
+				 " 16MB
+				 
+	choice 'Config Partition offset' "Default SPI_FLASH_CONFIG_OFFSET_DEFAULT \
+					  Last SPI_FLASH_CONFIG_OFFSET_LAST
+					  " Default
+
+
+	if [ "$SPI_FLASH_CONFIG_OFFSET_DEFAULT" = "y" ] || [ -z "$SPI_FLASH_CONFIG_OFFSET_DEFAULT" ]; then
+		choice 'Factory Partition offset after Config' "0x00000 SPI_FLASH_FACTORY_OFFSET_00000 \
+								0x10000 SPI_FLASH_FACTORY_OFFSET_10000 \
+								0x20000 SPI_FLASH_FACTORY_OFFSET_20000 \
+								0x30000 SPI_FLASH_FACTORY_OFFSET_30000 \
+								0x40000 SPI_FLASH_FACTORY_OFFSET_40000
+								" 0x00000
+								    
+		choice "Others Partitions Size" "0x13000 SPI_FLASH_OTHERS_130000 \
+						 0x14000 SPI_FLASH_OTHERS_140000 \
+						 0x15000 SPI_FLASH_OTHERS_150000
+						 " 0x13000
+	else
+	if [ "$SPI_FLASH_CONFIG_OFFSET_LAST" = "y" ]; then
+		choice 'Factory Partition offset after Bootloader' "0x00000 SPI_FLASH_FACTORY_OFFSET_00000 \
+								    0x10000 SPI_FLASH_FACTORY_OFFSET_10000 \
+								    0x20000 SPI_FLASH_FACTORY_OFFSET_20000 \
+								    0x30000 SPI_FLASH_FACTORY_OFFSET_30000 \
+								    0x40000 SPI_FLASH_FACTORY_OFFSET_40000
+								    " 0x20000
+								    
+		choice "Others Partitions Size" "0x13000 SPI_FLASH_OTHERS_130000 \
+						 0x14000 SPI_FLASH_OTHERS_140000 \
+						 0x15000 SPI_FLASH_OTHERS_150000
+						 " 0x14000
+	fi
+	fi
+comment ""
+fi
+
 if [ "$DUAL_IMAGE_SUPPORT" = "y" ]; then
 choice 'Flash Size' "4M ON_BOARD_4M_FLASH_COMPONENT \
                      8M ON_BOARD_8M_FLASH_COMPONENT \
@@ -1416,17 +1460,60 @@ if [ "$ON_BOARD_SPI_FLASH_COMPONENT" = "y" ]; then
 	bool "Use SPI flash fast read mode" SPI_FLASH_READ_FAST
 	bool "Use SPI flash double read mode" SPI_FLASH_READ_DOR
 	bool "Use SPI flash quad read mode" SPI_FLASH_READ_QOR
-	bool "Use SPI Bdata (64k) mtd partition before Factory" SPI_FLASH_BDATA64_BEFORE_FACTORY
 fi
 
-if [ "$DUAL_IMAGE_SUPPORT" = "y" ]; then
-choice 'Flash Size' "4M ON_BOARD_4M_FLASH_COMPONENT \
-                     8M ON_BOARD_8M_FLASH_COMPONENT \
-                     16M ON_BOARD_16M_FLASH_COMPONENT 
-		    " 4M
-fi
+if [ "$ON_BOARD_SPI_FLASH_COMPONENT" = "y" ]; then
+	comment "SPI partitions parameters"
+	choice "SPI Flash size" "2MB ON_BOARD_2M_FLASH_COMPONENT \
+				 4MB ON_BOARD_4M_FLASH_COMPONENT \
+				 8MB ON_BOARD_8M_FLASH_COMPONENT \
+				 16MB ON_BOARD_16M_FLASH_COMPONENT \
+				 32MB ON_BOARD_32M_FLASH_COMPONENT
+				 " 16MB
+				 
+	choice 'Config Partition offset' "Default SPI_FLASH_CONFIG_OFFSET_DEFAULT \
+					  Last SPI_FLASH_CONFIG_OFFSET_LAST
+					  " Default
 
+
+	if [ "$SPI_FLASH_CONFIG_OFFSET_DEFAULT" = "y" ] || [ -z "$SPI_FLASH_CONFIG_OFFSET_DEFAULT" ]; then
+		choice 'Factory Partition offset after Config' "0x00000 SPI_FLASH_FACTORY_OFFSET_00000 \
+								0x10000 SPI_FLASH_FACTORY_OFFSET_10000 \
+								0x20000 SPI_FLASH_FACTORY_OFFSET_20000 \
+								0x30000 SPI_FLASH_FACTORY_OFFSET_30000 \
+								0x40000 SPI_FLASH_FACTORY_OFFSET_40000
+								" 0x00000
+								    
+		choice "Others Partitions Size" "0x13000 SPI_FLASH_OTHERS_130000 \
+						 0x14000 SPI_FLASH_OTHERS_140000 \
+						 0x15000 SPI_FLASH_OTHERS_150000
+						 " 0x13000
+	else
+	if [ "$SPI_FLASH_CONFIG_OFFSET_LAST" = "y" ]; then
+		choice 'Factory Partition offset after Bootloader' "0x00000 SPI_FLASH_FACTORY_OFFSET_00000 \
+								    0x10000 SPI_FLASH_FACTORY_OFFSET_10000 \
+								    0x20000 SPI_FLASH_FACTORY_OFFSET_20000 \
+								    0x30000 SPI_FLASH_FACTORY_OFFSET_30000 \
+								    0x40000 SPI_FLASH_FACTORY_OFFSET_40000
+								    " 0x20000
+								    
+		choice "Others Partitions Size" "0x13000 SPI_FLASH_OTHERS_130000 \
+						 0x14000 SPI_FLASH_OTHERS_140000 \
+						 0x15000 SPI_FLASH_OTHERS_150000
+						 " 0x14000
+	fi
+	fi
 comment ""
+fi
+
+#if [ "$DUAL_IMAGE_SUPPORT" = "y" ]; then
+#choice 'Flash Size' "4M ON_BOARD_4M_FLASH_COMPONENT \
+#                     8M ON_BOARD_8M_FLASH_COMPONENT \
+#                     16M ON_BOARD_16M_FLASH_COMPONENT 
+#		    " 4M
+#fi
+
+#comment ""
 
 choice 'CPU Frequency' "900Mhz MT7621_CPU_900MHZ \
 			880Mhz MT7621_CPU_880MHZ \

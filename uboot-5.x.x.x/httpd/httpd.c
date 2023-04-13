@@ -2,10 +2,9 @@
 #include "httpd.h"
 #include "fs.h"
 #include "fsdata.h"
-
 #define STATE_NONE				0		// empty state (waiting for request...)
-#define STATE_FILE_REQUEST		1		// remote host sent GET request
-#define STATE_UPLOAD_REQUEST	2		// remote host sent POST request
+#define STATE_FILE_REQUEST			1		// remote host sent GET request
+#define STATE_UPLOAD_REQUEST			2		// remote host sent POST request
 
 // ASCII characters
 #define ISO_G					0x47	// GET
@@ -38,7 +37,7 @@ extern int webfailsafe_upgrade_type;
 extern ulong NetBootFileXferSize;
 extern unsigned char *webfailsafe_data_pointer;
 
-extern flash_info_t flash_info[];
+//extern flash_info_t flash_info[];
 
 // http app state
 struct httpd_state *hs;
@@ -103,7 +102,7 @@ static void httpd_state_reset(void){
 static int httpd_findandstore_firstchunk(void){
 	char *start = NULL;
 	char *end = NULL;
-	flash_info_t *info = &flash_info[0];
+//	flash_info_t *info = &flash_info[0];
 
 	if(!boundary_value){
 		return(0);
@@ -193,11 +192,12 @@ static int httpd_findandstore_firstchunk(void){
 					webfailsafe_upload_failed = 1;
 
 				// firmware can't exceed: (FLASH_SIZE -  WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES)
-				/*} else if(hs->upload_total > (info->size - WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES)){
-
+//				} else if((webfailsafe_upgrade_type == WEBFAILSAFE_UPGRADE_TYPE_FIRMWARE) && (hs->upload_total > (info->size - WEBFAILSAFE_UPLOAD_LIMITED_AREA_IN_BYTES))){
+#ifdef CFG_KERN_SIZE
+				} else if((webfailsafe_upgrade_type == WEBFAILSAFE_UPGRADE_TYPE_FIRMWARE) && (hs->upload_total > CFG_KERN_SIZE)){
 					printf("*** ERROR: file too big!\n");
-					webfailsafe_upload_failed = 1;*/
-
+					webfailsafe_upload_failed = 1;
+#endif
 				}
 
 				printf("Loading: ");
@@ -453,7 +453,6 @@ void httpd_appcall(void){
 					} else {
 						printf("Data will be downloaded at 0x%X in RAM\n", WEBFAILSAFE_UPLOAD_RAM_ADDRESS);
 					}
-
 					memset((void *)webfailsafe_data_pointer, 0xFF, WEBFAILSAFE_UPLOAD_UBOOT_SIZE_IN_BYTES);
 
 					if(httpd_findandstore_firstchunk()){
