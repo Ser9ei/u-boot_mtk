@@ -2,15 +2,13 @@
         RT3052/RT3352/RT3883/RT5350/MT7620/MT7621/MT7628/MT7688
                      Based on MediaTek SDK 5.0.1.0
 
-!
+*This is a Fork from* https://gitlab.com/db260179/u-boot-mt7621/-/tree/master/
 
-! This is a Fork from https://gitlab.com/db260179/u-boot-mt7621/-/tree/master/
-
-! New profile for the r4av2/rb02 revision of the Xiaomi mi router 4a gigabit v2 was added
-
-! Links to the uboot/factory/firmware updates pages to simple switch between html pages (see screenshots below) were added
-
-!
+**New features:**
+- New profiles:
+Xiaomi mi router 4a gigabit v2 (r4av2/rb02) - mt7621 chip
+Xiaomi mi mini - mt7620 chip
+- Links to the uboot/factory/firmware mode of the httpd failsafe repair for quickly switch between html pages (see screenshots below)
 
 #### Preparing Toolchain
 
@@ -31,7 +29,7 @@ apt install libc6:i386 libncurses5:i386 libstdc++6:i386
 
 #### Build Instructions
 
-- Copy appropriate '.config' file (e.g. profiles/XIAOMI/MI-R4AG_SPI/.config)
+- Copy appropriate '.config' file (e.g. profiles/XIAOMI/MI-R4AV2.config)
   to 'uboot-5.x.x.x' dir.
 - Goto 'uboot-5.x.x.x' dir.
 - Run 'make menuconfig', choose [Exit] and confirm [Save]. This is important step!
@@ -62,64 +60,36 @@ NOTE:
 
 #### Flash Instructions
 
-Take a backup of the current u-boot partition (`mtd0`):
+Take a backup of the current u-boot partition (`mtd0`).
 
+Get info about mtd partitions structure:
   ```
-  root@OpenWrt:/tmp# dd if=/dev/mtd0 of=uboot_orig.bin
-  256+0 records in
-  256+0 records out
+  cat /proc/mtd
   ```
-
+Make backup of original u-boot (mtd0 - partition device name in the sample with uboot):
+  ```
+  cat /dev/mtd0 > /tmp/uboot_orig.bin
+  ```
 Transfer the backup off the device and to a safe place:
+  ```
+ scp root@192.168.1.1:/tmp/uboot_orig.bin .
+  ```
+  
+Transfer the new uboot to the router:
+  ```
+  scp uboot_new.bin root@192.168.1.1:/tmp/
+  ```
+  And flash:
+  ```
+  mtd -e /dev/mtd0 write /tmp/uboot_new.bin /dev/mtd0
+  ```
+  
+
+**Danger**: *This is the point of no return, if you have any errors or problems, please revert the original image at any time using:*
 
   ```
-  me@laptop:~# scp root@192.168.1.1:/tmp/uboot_orig.bin .
-  uboot_orig.bin                                100%  128KB 128.0KB/s   00:00
+  mtd -e /dev/mtd0 write /tmp/uboot_orig.bin /dev/mtd0
   ```
-
-**Beware**: This step may differ for other devices. I'm using TP-Link TL-MR3220v2 and it uses the first 64 KiB block to store compressed U-Boot image. In the second 64 KiB block they store additional information like MAC address, model number and WPS pin number. This means the old backup is bigger than the new one we're going to flash. To store the old settings we're going to modify only the compressed U-Boot image and leave the additional information intact. To do that, take a copy of the original file, and copy the new image over it without truncating the leftover bytes:
-
-  ```
-  root@OpenWrt:/tmp# cp uboot_orig.bin uboot_new.bin
-  root@OpenWrt:/tmp# dd if=uboot_for_tp-link_tl-mr3220_v2.bin of=uboot_new.bin conv=notrunc
-  128+0 records in
-  128+0 records out
-  ```
-
-**Danger**: This is the point of no return, if you have any errors or problems, please revert the original image at any time using:
-
-  ```
-  root@OpenWrt:/tmp# mtd write uboot_orig.bin "u-boot"
-  Unlocking u-boot ...
-
-  Writing from uboot_orig.bin to u-boot ...
-  ```
-
-Now, to actually flash the new image, run:
-
-  ```
-  root@OpenWrt:/tmp# mtd write uboot_new.bin "u-boot"
-  Unlocking u-boot ...
-
-  Writing from uboot_new.bin to u-boot ...
-  ```
-
-To verify that the image was flashed correctly, you should verify it:
-
-  ```
-  root@OpenWrt:/tmp# mtd verify uboot_new.bin "u-boot"
-  Verifying u-boot against uboot_new.bin ...
-  a80c3a8683345a3fb311555c5d4194c5 - u-boot
-  a80c3a8683345a3fb311555c5d4194c5 - uboot_new.bin
-  Success
-  ```
-
-- Upload appropriate U-Boot image file to router's /tmp dir (e.g. via WinSCP or just wget it by creating a local http server).
-- Check U-Boot image checksum and compare with uboot.md5:
-```
-md5sum /tmp/uboot.bin
-```
-
 Double check the boot partition name 'Bootloader' by 'cat /proc/mtd', usually it's on /dev/mtd0 or sometimes mtd1.
 - Reboot router.
 
@@ -136,13 +106,16 @@ Double check the boot partition name 'Bootloader' by 'cat /proc/mtd', usually it
    partition from 192.168.1.1/factory.html and 192.168.1.1/uboot.html respectively.
    For Xiaomi routers http server maybe reached by the 192.168.31.1 ip, it depend on envoriment from the Config/BootEnv partition values.
 ![firmware](https://user-images.githubusercontent.com/61657001/231694117-161912d1-38ab-465a-b424-1948591c48ed.jpg)
+
 ![uboot](https://user-images.githubusercontent.com/61657001/231694190-ee70e38d-673c-4eec-9328-42dc966e81b1.jpg)
+
 ![factory](https://user-images.githubusercontent.com/61657001/231694218-3a3a6bd5-16ab-4556-803e-012cc8546efa.jpg)
 
 3. Also you can use TFTP client or ASUS Firmware Restoration (device IP-address is 192.168.1.1). Some devices with usb
    port can also support Recovery from USB storage.
 
 NOTE:
+- Usually, Xiaomi router has 192.168.31.1 address, so please remeber about it and find you router in the failsafe repair mode by this address or modify u-boot enviriments for ip address to the 192.168.1.1
 - U-Boot will perform switch to Recovery mode on flash content integrity fail.
 - Alert LED(s) is blinking in Recovery mode and on erasing/flashing.
 - To Recovery from USB storage, place FW image with a filename 'root_uImage' to first
