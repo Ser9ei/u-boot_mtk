@@ -42,7 +42,7 @@ static void check_for_4b(u32 address)
 #define OPCODE_RES		0xAB	/* Read Electronic Signature */
 #define OPCODE_RDID		0x9F	/* Read JEDEC ID */
 
-#define OPCODE_FAST_READ	0x0B	/* Fast Read */
+#define OPCODE_FAST_READ		0x0B	/* Fast Read */
 #define OPCODE_DOR			0x3B	/* Dual Output Read */
 #define OPCODE_QOR			0x6B	/* Quad Output Read */
 #define OPCODE_DIOR			0xBB	/* Dual IO High Performance Read */
@@ -107,9 +107,8 @@ static void check_for_4b(u32 address)
 #define RD_MODE_QOR		// use QOR (0x6B) instead of normal Read
 #endif
 #endif
-#endif
 
-//#define ADDR_4B			// if all instruction use 4B address mode
+//#define ADDR_4B		// if all instruction use 4B address mode
 //#define RD_MODE_FAST		// use Fast Read instead of normal Read
 //#define RD_MODE_DIOR		// use DIOR (0xBB)instead of normal Read
 //#define RD_MODE_DOR		// use DOR (0x3B) instead of normal Read
