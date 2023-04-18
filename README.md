@@ -6,8 +6,7 @@
 
 **New features:**
 - New profiles:
-Xiaomi mi router 4a gigabit v2 (r4av2/rb02) mt7621 chip; 
-Xiaomi mi mini mt7620 chip
+Xiaomi mi router 4a gigabit v2 (r4av2/rb02) - mt7621 chip, Xiaomi mi mini - mt7620 chip
 - Links to the uboot/factory/firmware mode of the httpd failsafe repair for quickly switch between html pages (see screenshots below)
 
 #### Preparing Toolchain
