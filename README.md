@@ -6,8 +6,8 @@
 
 **New features:**
 - New profiles:
-Xiaomi mi router 4a gigabit v2 (r4av2/rb02) - mt7621 chip
-Xiaomi mi mini - mt7620 chip
+Xiaomi mi router 4a gigabit v2 (r4av2/rb02) mt7621 chip
+Xiaomi mi mini mt7620 chip
 - Links to the uboot/factory/firmware mode of the httpd failsafe repair for quickly switch between html pages (see screenshots below)
 
 #### Preparing Toolchain
@@ -105,11 +105,12 @@ Double check the boot partition name 'Bootloader' by 'cat /proc/mtd', usually it
 2. Go to 192.168.1.1 from any browser and upload or upgrade your firmware. You can also upgrade your factory and u-boot
    partition from 192.168.1.1/factory.html and 192.168.1.1/uboot.html respectively.
    For Xiaomi routers http server maybe reached by the 192.168.31.1 ip, it depend on envoriment from the Config/BootEnv partition values.
-![firmware](https://user-images.githubusercontent.com/61657001/231694117-161912d1-38ab-465a-b424-1948591c48ed.jpg)
+![1 jpg](https://user-images.githubusercontent.com/61657001/232837801-37d8ee25-8b42-406c-8d1a-945b4c31f26c.png)
 
-![uboot](https://user-images.githubusercontent.com/61657001/231694190-ee70e38d-673c-4eec-9328-42dc966e81b1.jpg)
+![2 jpg](https://user-images.githubusercontent.com/61657001/232837816-029b2930-7ea9-46b4-bac2-b0d650ba0f3d.png)
 
-![factory](https://user-images.githubusercontent.com/61657001/231694218-3a3a6bd5-16ab-4556-803e-012cc8546efa.jpg)
+![3](https://user-images.githubusercontent.com/61657001/232837844-ac23f068-3b1a-4308-9a8e-2c32ea1a0f00.jpg)
+
 
 3. Also you can use TFTP client or ASUS Firmware Restoration (device IP-address is 192.168.1.1). Some devices with usb
    port can also support Recovery from USB storage.
