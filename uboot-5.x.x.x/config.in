@@ -596,11 +596,12 @@ fi
 #-----------------------
 define_bool ON_BOARD_SDR y
 
-choice 'DRAM Component' "64Mb ON_BOARD_64M_DRAM_COMPONENT \
+choice 'DRAM Component' "32Mb ON_BOARD_32M_DRAM_COMPONENT \
+                         64Mb ON_BOARD_64M_DRAM_COMPONENT \
                          128Mb ON_BOARD_128M_DRAM_COMPONENT \
                          256Mb ON_BOARD_256M_DRAM_COMPONENT \
                          512Mb ON_BOARD_512M_DRAM_COMPONENT 
-		      " 128Mb
+		      " 32Mb
 
 define_bool ON_BOARD_16BIT_DRAM_BUS y
 
@@ -611,6 +612,54 @@ comment ""
 #bool "Dual Image" DUAL_IMAGE_SUPPORT
 
 bool "USB Recovery" USB_RECOVERY_SUPPORT
+
+comment "SPI partitions parameters"
+choice "SPI Flash size" "2MB ON_BOARD_2M_FLASH_COMPONENT \
+			 4MB ON_BOARD_4M_FLASH_COMPONENT \
+			 8MB ON_BOARD_8M_FLASH_COMPONENT \
+			 16MB ON_BOARD_16M_FLASH_COMPONENT \
+			 32MB ON_BOARD_32M_FLASH_COMPONENT
+			 " 4MB
+choice 'Config Partition offset' "Default SPI_FLASH_CONFIG_OFFSET_DEFAULT \
+				  Last SPI_FLASH_CONFIG_OFFSET_LAST
+				  " Default
+
+
+if [ "$SPI_FLASH_CONFIG_OFFSET_DEFAULT" = "y" ] || [ -z "$SPI_FLASH_CONFIG_OFFSET_DEFAULT" ]; then
+	choice 'Factory Partition offset after Config' "0x00000 SPI_FLASH_FACTORY_OFFSET_00000 \
+							0x10000 SPI_FLASH_FACTORY_OFFSET_10000 \
+							0x20000 SPI_FLASH_FACTORY_OFFSET_20000 \
+							0x30000 SPI_FLASH_FACTORY_OFFSET_30000 \
+							0x40000 SPI_FLASH_FACTORY_OFFSET_40000
+							" 0x00000
+								    
+	choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x00000 SPI_FLASH_OTHERS_00000 \
+									 0x10000 SPI_FLASH_OTHERS_10000 \
+									 0x20000 SPI_FLASH_OTHERS_20000
+									 0x30000 SPI_FLASH_OTHERS_30000
+									 0x40000 SPI_FLASH_OTHERS_40000
+									 " 0x20000
+else
+	if [ "$SPI_FLASH_CONFIG_OFFSET_LAST" = "y" ]; then
+		choice 'Factory Partition offset after Bootloader' "0x00000 SPI_FLASH_FACTORY_OFFSET_00000 \
+								    0x10000 SPI_FLASH_FACTORY_OFFSET_10000 \
+								    0x20000 SPI_FLASH_FACTORY_OFFSET_20000 \
+								    0x30000 SPI_FLASH_FACTORY_OFFSET_30000 \
+								    0x40000 SPI_FLASH_FACTORY_OFFSET_40000
+								    " 0x00000
+								    
+		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x00000 SPI_FLASH_OTHERS_00000 \
+										 0x10000 SPI_FLASH_OTHERS_10000 \
+										 0x20000 SPI_FLASH_OTHERS_20000
+										 0x30000 SPI_FLASH_OTHERS_30000
+										 0x40000 SPI_FLASH_OTHERS_40000
+										 " 0x20000
+	fi
+fi
+choice "Others Partitions offset relative to Firmware" "Before SPI_FLASH_OTHERS_OFFSET_BEFORE_FIRMWARE \
+							After SPI_FLASH_OTHERS_OFFSET_AFTER_FIRMWARE
+							" After
+comment ""
 
 bool "Partition LAN/WAN" LAN_WAN_PARTITION
 if [ "$LAN_WAN_PARTITION" = "y" ]; then
@@ -990,24 +1039,24 @@ comment ""
 								0x40000 SPI_FLASH_FACTORY_OFFSET_40000
 								" 0x00000
 								    
-		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x13000 SPI_FLASH_OTHERS_130000 \
-										 0x14000 SPI_FLASH_OTHERS_140000 \
-										 0x15000 SPI_FLASH_OTHERS_150000
-										 " 0x13000
+		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x130000 SPI_FLASH_OTHERS_130000 \
+										 0x140000 SPI_FLASH_OTHERS_140000 \
+										 0x150000 SPI_FLASH_OTHERS_150000
+										 " 0x130000
 	else
-	if [ "$SPI_FLASH_CONFIG_OFFSET_LAST" = "y" ]; then
-		choice 'Factory Partition offset after Bootloader' "0x00000 SPI_FLASH_FACTORY_OFFSET_00000 \
-								    0x10000 SPI_FLASH_FACTORY_OFFSET_10000 \
-								    0x20000 SPI_FLASH_FACTORY_OFFSET_20000 \
-								    0x30000 SPI_FLASH_FACTORY_OFFSET_30000 \
-								    0x40000 SPI_FLASH_FACTORY_OFFSET_40000
-								    " 0x20000
+		if [ "$SPI_FLASH_CONFIG_OFFSET_LAST" = "y" ]; then
+			choice 'Factory Partition offset after Bootloader' "0x00000 SPI_FLASH_FACTORY_OFFSET_00000 \
+									    0x10000 SPI_FLASH_FACTORY_OFFSET_10000 \
+									    0x20000 SPI_FLASH_FACTORY_OFFSET_20000 \
+									    0x30000 SPI_FLASH_FACTORY_OFFSET_30000 \
+									    0x40000 SPI_FLASH_FACTORY_OFFSET_40000
+									    " 0x20000
 								    
-		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x13000 SPI_FLASH_OTHERS_130000 \
-										 0x14000 SPI_FLASH_OTHERS_140000 \
-										 0x15000 SPI_FLASH_OTHERS_150000
-										 " 0x14000
-	fi
+			choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x130000 SPI_FLASH_OTHERS_130000 \
+											 0x140000 SPI_FLASH_OTHERS_140000 \
+											 0x150000 SPI_FLASH_OTHERS_150000
+											 " 0x140000
+		fi
 	fi
 	choice "Others Partitions offset relative to Firmware" "Before SPI_FLASH_OTHERS_OFFSET_BEFORE_FIRMWARE \
 								After SPI_FLASH_OTHERS_OFFSET_AFTER_FIRMWARE
@@ -1489,24 +1538,24 @@ comment ""
 								0x40000 SPI_FLASH_FACTORY_OFFSET_40000
 								" 0x00000
 								    
-		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x13000 SPI_FLASH_OTHERS_130000 \
-										 0x14000 SPI_FLASH_OTHERS_140000 \
-										 0x15000 SPI_FLASH_OTHERS_150000
-										 " 0x13000
+		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x130000 SPI_FLASH_OTHERS_130000 \
+										 0x140000 SPI_FLASH_OTHERS_140000 \
+										 0x150000 SPI_FLASH_OTHERS_150000
+										 " 0x130000
 	else
-	if [ "$SPI_FLASH_CONFIG_OFFSET_LAST" = "y" ]; then
-		choice 'Factory Partition offset after Bootloader' "0x00000 SPI_FLASH_FACTORY_OFFSET_00000 \
-								    0x10000 SPI_FLASH_FACTORY_OFFSET_10000 \
-								    0x20000 SPI_FLASH_FACTORY_OFFSET_20000 \
-								    0x30000 SPI_FLASH_FACTORY_OFFSET_30000 \
-								    0x40000 SPI_FLASH_FACTORY_OFFSET_40000
-								    " 0x20000
+		if [ "$SPI_FLASH_CONFIG_OFFSET_LAST" = "y" ]; then
+			choice 'Factory Partition offset after Bootloader' "0x00000 SPI_FLASH_FACTORY_OFFSET_00000 \
+									    0x10000 SPI_FLASH_FACTORY_OFFSET_10000 \
+									    0x20000 SPI_FLASH_FACTORY_OFFSET_20000 \
+									    0x30000 SPI_FLASH_FACTORY_OFFSET_30000 \
+									    0x40000 SPI_FLASH_FACTORY_OFFSET_40000
+									    " 0x20000
 								    
-		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x13000 SPI_FLASH_OTHERS_130000 \
-										 0x14000 SPI_FLASH_OTHERS_140000 \
-										 0x15000 SPI_FLASH_OTHERS_150000
-										 " 0x14000
-	fi
+			choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x130000 SPI_FLASH_OTHERS_130000 \
+											 0x140000 SPI_FLASH_OTHERS_140000 \
+											 0x150000 SPI_FLASH_OTHERS_150000
+											 " 0x140000
+		fi
 	fi
 	choice "Others Partitions offset relative to Firmware" "Before SPI_FLASH_OTHERS_OFFSET_BEFORE_FIRMWARE \
 								After SPI_FLASH_OTHERS_OFFSET_AFTER_FIRMWARE
