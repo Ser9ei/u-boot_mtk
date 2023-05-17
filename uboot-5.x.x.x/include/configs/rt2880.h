@@ -362,13 +362,23 @@ extern unsigned int  CFG_BLOCKSIZE;
 #define CFG_BOOTLOADER_SIZE	0x30000 // Default sizes (192k)
 #define CFG_CONFIG_SIZE		0x10000 // 64k
 #define CFG_FACTORY_SIZE	0x10000 // 64k
-//define CFG_OFFSET_SIZE
-#if defined (SPI_FLASH_OTHERS_150000)
-#define CFG_OFFSET_SIZE		0x150000 //other partitions (crash,cfk_bak,overlay)
+//define CFG_OFFSET_SIZE		//other partitions (crash,cfk_bak,overlay)
+#if defined (SPI_FLASH_OTHERS_00000)
+#define CFG_OFFSET_SIZE		0x00000 
+#elif defined (SPI_FLASH_OTHERS_10000)
+#define CFG_OFFSET_SIZE		0x10000 
+#elif defined (SPI_FLASH_OTHERS_20000)
+#define CFG_OFFSET_SIZE		0x20000 
+#elif defined (SPI_FLASH_OTHERS_30000)
+#define CFG_OFFSET_SIZE		0x30000 
+#elif defined (SPI_FLASH_OTHERS_40000)
+#define CFG_OFFSET_SIZE		0x40000 
+#elif defined (SPI_FLASH_OTHERS_150000)
+#define CFG_OFFSET_SIZE		0x150000
 #elif defined (SPI_FLASH_OTHERS_140000)
-#define CFG_OFFSET_SIZE		0x140000 //other partitions (crash,cfk_bak,overlay)
+#define CFG_OFFSET_SIZE		0x140000
 #else
-#define CFG_OFFSET_SIZE		0x130000 //1.2m other partitions (crash,cfk_bak,overlay)
+#define CFG_OFFSET_SIZE		0x130000
 #endif
 #endif
 //CFG_ENV_ADDR
@@ -452,6 +462,9 @@ extern unsigned int  CFG_BLOCKSIZE;
 #define CFG_RX_ETH_BUFFER		60
 
 /*--2 test constants-----------------------------------------------------
+_CFG_SDRAM_BASE CFG_SDRAM_BASE
+_CFG_LOAD_ADDR CFG_LOAD_ADDR
+_WEBFAILSAFE_UPLOAD_RAM_ADDRESS WEBFAILSAFE_UPLOAD_RAM_ADDRESS
 _WEBFAILSAFE_UPLOAD_UBOOT_ADDRESS WEBFAILSAFE_UPLOAD_UBOOT_ADDRESS
 _WEBFAILSAFE_UPLOAD_UBOOT_SIZE_IN_BYTES WEBFAILSAFE_UPLOAD_UBOOT_SIZE_IN_BYTES
 _WEBFAILSAFE_UPLOAD_KERNEL_ADDRESS WEBFAILSAFE_UPLOAD_KERNEL_ADDRESS

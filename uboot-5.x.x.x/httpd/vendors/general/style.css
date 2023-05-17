@@ -76,3 +76,11 @@ ul {
 	margin: 0 0 5px;
 	display: block;
 }
+
+.grey {
+	color: #A9A9A9;
+}
+
+.lt {
+	text-align: right;
+}
