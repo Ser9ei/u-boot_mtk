@@ -596,12 +596,11 @@ fi
 #-----------------------
 define_bool ON_BOARD_SDR y
 
-choice 'DRAM Component' "32Mb ON_BOARD_32M_DRAM_COMPONENT \
-                         64Mb ON_BOARD_64M_DRAM_COMPONENT \
+choice 'DRAM Component' "64Mb ON_BOARD_64M_DRAM_COMPONENT \
                          128Mb ON_BOARD_128M_DRAM_COMPONENT \
                          256Mb ON_BOARD_256M_DRAM_COMPONENT \
                          512Mb ON_BOARD_512M_DRAM_COMPONENT 
-		      " 32Mb
+		      " 128Mb
 
 define_bool ON_BOARD_16BIT_DRAM_BUS y
 
