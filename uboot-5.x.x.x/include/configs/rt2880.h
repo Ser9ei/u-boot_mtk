@@ -364,21 +364,51 @@ extern unsigned int  CFG_BLOCKSIZE;
 #define CFG_FACTORY_SIZE	0x10000 // 64k
 //define CFG_OFFSET_SIZE		//other partitions (crash,cfk_bak,overlay)
 #if defined (SPI_FLASH_OTHERS_00000)
-#define CFG_OFFSET_SIZE		0x00000 
+#define CFG_OFFSET_SIZE		0x00000
 #elif defined (SPI_FLASH_OTHERS_10000)
-#define CFG_OFFSET_SIZE		0x10000 
+#define CFG_OFFSET_SIZE		0x10000
 #elif defined (SPI_FLASH_OTHERS_20000)
-#define CFG_OFFSET_SIZE		0x20000 
+#define CFG_OFFSET_SIZE		0x20000
 #elif defined (SPI_FLASH_OTHERS_30000)
-#define CFG_OFFSET_SIZE		0x30000 
+#define CFG_OFFSET_SIZE		0x30000
 #elif defined (SPI_FLASH_OTHERS_40000)
-#define CFG_OFFSET_SIZE		0x40000 
-#elif defined (SPI_FLASH_OTHERS_150000)
-#define CFG_OFFSET_SIZE		0x150000
+#define CFG_OFFSET_SIZE		0x40000
+#elif defined (SPI_FLASH_OTHERS_50000)
+#define CFG_OFFSET_SIZE		0x50000
+#elif defined (SPI_FLASH_OTHERS_60000)
+#define CFG_OFFSET_SIZE		0x60000
+#elif defined (SPI_FLASH_OTHERS_70000)
+#define CFG_OFFSET_SIZE		0x70000
+#elif defined (SPI_FLASH_OTHERS_80000)
+#define CFG_OFFSET_SIZE		0x80000
+#elif defined (SPI_FLASH_OTHERS_90000)
+#define CFG_OFFSET_SIZE		0x90000
+#elif defined (SPI_FLASH_OTHERS_a0000)
+#define CFG_OFFSET_SIZE		0xa0000
+#elif defined (SPI_FLASH_OTHERS_b0000)
+#define CFG_OFFSET_SIZE		0xb0000
+#elif defined (SPI_FLASH_OTHERS_c0000)
+#define CFG_OFFSET_SIZE		0xc0000
+#elif defined (SPI_FLASH_OTHERS_d0000)
+#define CFG_OFFSET_SIZE		0xd0000
+#elif defined (SPI_FLASH_OTHERS_e0000)
+#define CFG_OFFSET_SIZE		0xe0000
+#elif defined (SPI_FLASH_OTHERS_f0000)
+#define CFG_OFFSET_SIZE		0xf0000
+#elif defined (SPI_FLASH_OTHERS_100000)
+#define CFG_OFFSET_SIZE		0x100000
+#elif defined (SPI_FLASH_OTHERS_110000)
+#define CFG_OFFSET_SIZE		0x110000
+#elif defined (SPI_FLASH_OTHERS_120000)
+#define CFG_OFFSET_SIZE		0x120000
+#elif defined (SPI_FLASH_OTHERS_130000)
+#define CFG_OFFSET_SIZE		0x130000
 #elif defined (SPI_FLASH_OTHERS_140000)
 #define CFG_OFFSET_SIZE		0x140000
+#elif defined (SPI_FLASH_OTHERS_150000)
+#define CFG_OFFSET_SIZE		0x150000
 #else
-#define CFG_OFFSET_SIZE		0x130000
+#define CFG_OFFSET_SIZE		0x00000
 #endif
 #endif
 //CFG_ENV_ADDR

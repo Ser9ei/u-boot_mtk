@@ -1038,7 +1038,26 @@ comment ""
 								0x40000 SPI_FLASH_FACTORY_OFFSET_40000
 								" 0x00000
 								    
-		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x130000 SPI_FLASH_OTHERS_130000 \
+		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x00000 SPI_FLASH_OTHERS_00000 \
+										 0x10000 SPI_FLASH_OTHERS_10000 \
+										 0x20000 SPI_FLASH_OTHERS_20000 \
+										 0x30000 SPI_FLASH_OTHERS_30000 \
+										 0x40000 SPI_FLASH_OTHERS_40000 \
+										 0x50000 SPI_FLASH_OTHERS_50000 \
+										 0x60000 SPI_FLASH_OTHERS_60000 \
+										 0x70000 SPI_FLASH_OTHERS_70000 \
+										 0x80000 SPI_FLASH_OTHERS_80000 \
+										 0x90000 SPI_FLASH_OTHERS_90000 \
+										 0xA0000 SPI_FLASH_OTHERS_a0000 \
+										 0xB0000 SPI_FLASH_OTHERS_b0000 \
+										 0xC0000 SPI_FLASH_OTHERS_c0000 \
+										 0xD0000 SPI_FLASH_OTHERS_d0000 \
+										 0xE0000 SPI_FLASH_OTHERS_e0000 \
+										 0xF0000 SPI_FLASH_OTHERS_f0000 \
+										 0x100000 SPI_FLASH_OTHERS_100000 \
+										 0x110000 SPI_FLASH_OTHERS_110000 \
+										 0x120000 SPI_FLASH_OTHERS_120000 \
+										 0x130000 SPI_FLASH_OTHERS_130000 \
 										 0x140000 SPI_FLASH_OTHERS_140000 \
 										 0x150000 SPI_FLASH_OTHERS_150000
 										 " 0x130000
@@ -1051,7 +1070,26 @@ comment ""
 									    0x40000 SPI_FLASH_FACTORY_OFFSET_40000
 									    " 0x20000
 								    
-			choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x130000 SPI_FLASH_OTHERS_130000 \
+			choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x00000 SPI_FLASH_OTHERS_00000 \
+											 0x10000 SPI_FLASH_OTHERS_10000 \
+											 0x20000 SPI_FLASH_OTHERS_20000 \
+											 0x30000 SPI_FLASH_OTHERS_30000 \
+											 0x40000 SPI_FLASH_OTHERS_40000 \
+											 0x50000 SPI_FLASH_OTHERS_50000 \
+											 0x60000 SPI_FLASH_OTHERS_60000 \
+											 0x70000 SPI_FLASH_OTHERS_70000 \
+											 0x80000 SPI_FLASH_OTHERS_80000 \
+											 0x90000 SPI_FLASH_OTHERS_90000 \
+											 0xA0000 SPI_FLASH_OTHERS_a0000 \
+											 0xB0000 SPI_FLASH_OTHERS_b0000 \
+											 0xC0000 SPI_FLASH_OTHERS_c0000 \
+											 0xD0000 SPI_FLASH_OTHERS_d0000 \
+											 0xE0000 SPI_FLASH_OTHERS_e0000 \
+											 0xF0000 SPI_FLASH_OTHERS_f0000 \
+											 0x100000 SPI_FLASH_OTHERS_100000 \
+											 0x110000 SPI_FLASH_OTHERS_110000 \
+											 0x120000 SPI_FLASH_OTHERS_120000 \
+											 0x130000 SPI_FLASH_OTHERS_130000 \
 											 0x140000 SPI_FLASH_OTHERS_140000 \
 											 0x150000 SPI_FLASH_OTHERS_150000
 											 " 0x140000
@@ -1537,7 +1575,26 @@ comment ""
 								0x40000 SPI_FLASH_FACTORY_OFFSET_40000
 								" 0x00000
 								    
-		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x130000 SPI_FLASH_OTHERS_130000 \
+		choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x00000 SPI_FLASH_OTHERS_00000 \
+										 0x10000 SPI_FLASH_OTHERS_10000 \
+										 0x20000 SPI_FLASH_OTHERS_20000 \
+										 0x30000 SPI_FLASH_OTHERS_30000 \
+										 0x40000 SPI_FLASH_OTHERS_40000 \
+										 0x50000 SPI_FLASH_OTHERS_50000 \
+										 0x60000 SPI_FLASH_OTHERS_60000 \
+										 0x70000 SPI_FLASH_OTHERS_70000 \
+										 0x80000 SPI_FLASH_OTHERS_80000 \
+										 0x90000 SPI_FLASH_OTHERS_90000 \
+										 0xA0000 SPI_FLASH_OTHERS_a0000 \
+										 0xB0000 SPI_FLASH_OTHERS_b0000 \
+										 0xC0000 SPI_FLASH_OTHERS_c0000 \
+										 0xD0000 SPI_FLASH_OTHERS_d0000 \
+										 0xE0000 SPI_FLASH_OTHERS_e0000 \
+										 0xF0000 SPI_FLASH_OTHERS_f0000 \
+										 0x100000 SPI_FLASH_OTHERS_100000 \
+										 0x110000 SPI_FLASH_OTHERS_110000 \
+										 0x120000 SPI_FLASH_OTHERS_120000 \
+										 0x130000 SPI_FLASH_OTHERS_130000 \
 										 0x140000 SPI_FLASH_OTHERS_140000 \
 										 0x150000 SPI_FLASH_OTHERS_150000
 										 " 0x130000
@@ -1550,7 +1607,26 @@ comment ""
 									    0x40000 SPI_FLASH_FACTORY_OFFSET_40000
 									    " 0x20000
 								    
-			choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x130000 SPI_FLASH_OTHERS_130000 \
+			choice "Others Partitions Size (overlay, cfg_back, crash, etc)" "0x00000 SPI_FLASH_OTHERS_00000 \
+											 0x10000 SPI_FLASH_OTHERS_10000 \
+											 0x20000 SPI_FLASH_OTHERS_20000 \
+											 0x30000 SPI_FLASH_OTHERS_30000 \
+											 0x40000 SPI_FLASH_OTHERS_40000 \
+											 0x50000 SPI_FLASH_OTHERS_50000 \
+											 0x60000 SPI_FLASH_OTHERS_60000 \
+											 0x70000 SPI_FLASH_OTHERS_70000 \
+											 0x80000 SPI_FLASH_OTHERS_80000 \
+											 0x90000 SPI_FLASH_OTHERS_90000 \
+											 0xA0000 SPI_FLASH_OTHERS_a0000 \
+											 0xB0000 SPI_FLASH_OTHERS_b0000 \
+											 0xC0000 SPI_FLASH_OTHERS_c0000 \
+											 0xD0000 SPI_FLASH_OTHERS_d0000 \
+											 0xE0000 SPI_FLASH_OTHERS_e0000 \
+											 0xF0000 SPI_FLASH_OTHERS_f0000 \
+											 0x100000 SPI_FLASH_OTHERS_100000 \
+											 0x110000 SPI_FLASH_OTHERS_110000 \
+											 0x120000 SPI_FLASH_OTHERS_120000 \
+											 0x130000 SPI_FLASH_OTHERS_130000 \
 											 0x140000 SPI_FLASH_OTHERS_140000 \
 											 0x150000 SPI_FLASH_OTHERS_150000
 											 " 0x140000
