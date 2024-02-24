@@ -1,0 +1,128 @@
+###############################################################################
+
+Xiaomi MI Router 3gv2 & Xiaomi MI Router 4a gigabit
+https://wikidevi.wi-cat.ru/Xiaomi_MiWiFi_4A
+
+UART 115200
+RAM 128mb
+FLASH 16mb
+
+PARTITONS:
+start end size name
+0x0000000 0x0030000 0x0030000 Bootloader
+0x0030000 0x0040000 0x0010000 Config
+0x0040000 0x0050000 0x0010000 Bdata
+0x0050000 0x0060000 0x0010000 Factory
+0x0060000 0x0070000 0x0010000 crash
+0x0070000 0x0080000 0x0010000 cfg_bak
+0x0080000 0x0180000 0x0100000 overlay
+0x0180000 0x1000000 0x0E80000 OS1
+
+###############################################################################
+
+Xiaomi Mi Router AC1200 & Xiaomi MI Router 4a gigabit V2
+https://wikidevi.wi-cat.ru/Xiaomi_Mi_Router_AC1200_(RB02)
+
+UART 115200
+RAM 128mb
+FLASH 16mb
+
+PARTITONS:
+start end size name
+0x0000000 0x0030000 0x0030000 Bootloader
+0x0030000 0x0040000 0x0010000 KF
+0x0040000 0x0050000 0x0010000 Bdata
+0x0050000 0x0060000 0x0010000 Factory
+0x0060000 0x0070000 0x0010000 crash
+0x0070000 0x0080000 0x0010000 cfg_bak
+0x0080000 0x0180000 0x0100000 overlay
+0x0180000 0x0ff0000 0x0E70000 OS1
+0x0ff0000 0x1000000 0x0010000 Config
+
+###############################################################################
+
+Xiaomi MI WIFI MINI
+https://wikidevi.wi-cat.ru/Xiaomi_MiWiFi_Mini
+
+UART 115200
+RAM 128mb
+FLASH 16mb
+
+PARTITIONS:
+
+stock:
+start end size name
+0x0000000 0x0030000 0x0030000 Bootloader
+0x0030000 0x0040000 0x0010000 Config
+0x0040000 0x0050000 0x0010000 Factory
+0x0050000 0x0ed0000 0x0e80000 firmware
+0x0ed0000 0x0fd0000 0x0100000 overlay
+0x0fd0000 0x0fe0000 0x0010000 crash
+0x0fe0000 0x0ff0000 0x0010000 reserved
+0x0ff0000 0x1000000 0x0010000 Bdata
+
+extended:
+start end size name
+0x0000000 0x0030000 0x0030000 Bootloader
+0x0030000 0x0040000 0x0010000 Config
+0x0040000 0x0050000 0x0010000 Factory
+0x0050000 0x0fd0000 0x0e80000 firmware
+0x0fd0000 0x0fe0000 0x0010000 crash
+0x0fe0000 0x0ff0000 0x0010000 reserved
+0x0ff0000 0x1000000 0x0010000 Bdata
+
+###############################################################################
+
+D-Link DIR-300 rev B5 & B6 & B7
+https://wikidevi.wi-cat.ru/D-Link_DIR-300/NRU_rev_B7
+
+UART 57600
+RAM 32mb
+FLASH 4mb -> 8mb -> 16mb
+
+PARTITONS:
+4mb:
+start end size name
+0x0000000 0x0010000 0x0030000 u-boot
+0x0030000 0x0010000 0x0010000 u-boot-env
+0x0040000 0x0010000 0x0010000 factory
+0x0050000 0x0010000 0x03b0000 firmware
+
+8mb:
+start end size name
+0x0000000 0x0010000 0x0030000 u-boot
+0x0030000 0x0010000 0x0010000 u-boot-env
+0x0040000 0x0010000 0x0010000 factory
+0x0050000 0x0800000 0x07b0000 firmware
+
+16mb:
+start end size name
+0x0000000 0x0010000 0x0030000 u-boot
+0x0030000 0x0010000 0x0010000 u-boot-env
+0x0040000 0x0010000 0x0010000 factory
+0x0050000 0x1000000 0x0fb0000 firmware
+
+###############################################################################
+
+ASUS RT-N11P B1
+https://wikidevi.wi-cat.ru/ASUS_RT-N11P_B1
+
+UART 57600
+RAM 32mb Winbond W9425G6KH-5 -> 64mb
+FLASH 8mb GigaDevice GD25Q64CSIG -> 16mb
+
+PARTITONS:
+8mb
+start end size name
+0x0000000 0x0030000 0x0030000 bootloader
+0x0030000 0x0040000 0x0010000 config
+0x0040000 0x0010000 0x0050000 factory
+0x0050000 0x0800000 0x07b0000 firmware
+
+16mb
+start end size name
+0x0000000 0x0030000 0x0030000 bootloader
+0x0030000 0x0040000 0x0010000 config
+0x0040000 0x0010000 0x0050000 factory
+0x0050000 0x0fc0000 0x0f70000 firmware
+0x0fc0000 0x1000000 0x0040000 storage
