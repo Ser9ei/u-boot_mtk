@@ -3,6 +3,9 @@
 Xiaomi MI Router 3gv2 & Xiaomi MI Router 4a gigabit
 https://wikidevi.wi-cat.ru/Xiaomi_MiWiFi_4A
 
+profiles/XIAOMI/XIAOMI_MI-R4A.config
+
+
 UART 115200
 RAM 128mb
 FLASH 16mb
@@ -22,6 +25,8 @@ start end size name
 
 Xiaomi Mi Router AC1200 & Xiaomi MI Router 4a gigabit V2
 https://wikidevi.wi-cat.ru/Xiaomi_Mi_Router_AC1200_(RB02)
+
+profiles/XIAOMI/XIAOMI_MI-R4AV2.config
 
 UART 115200
 RAM 128mb
@@ -43,6 +48,9 @@ start end size name
 
 Xiaomi MI WIFI MINI
 https://wikidevi.wi-cat.ru/Xiaomi_MiWiFi_Mini
+
+profiles/XIAOMI/XIAOMI_MI-MINI.config
+profiles/XIAOMI/XIAOMI_MI-MINI_extendented-firmware-space.config
 
 UART 115200
 RAM 128mb
@@ -76,6 +84,10 @@ start end size name
 D-Link DIR-300 rev B5 & B6 & B7
 https://wikidevi.wi-cat.ru/D-Link_DIR-300/NRU_rev_B7
 
+profiles/D-LINK/D-LINK_DIR-300_B5B6B7.config
+profiles/D-LINK/D-LINK_DIR-300_B5B6B7_SPI-8M.config
+profiles/D-LINK/D-LINK_DIR-300_B5B6B7_SPI-16M.config
+
 UART 57600
 RAM 32mb
 FLASH 4mb -> 8mb -> 16mb
@@ -107,6 +119,11 @@ start end size name
 ASUS RT-N11P B1
 https://wikidevi.wi-cat.ru/ASUS_RT-N11P_B1
 
+profiles/ASUS/ASUS_RT-N11P_B1.config
+profiles/ASUS/ASUS_RT-N11P_B1_RAM-64M.config
+profiles/ASUS/ASUS_RT-N11P_B1_SPI-16M.config
+profiles/ASUS/ASUS_RT-N11P_B1_SPI-16M_RAM-64M.config
+
 UART 57600
 RAM 32mb Winbond W9425G6KH-5 -> 64mb
 FLASH 8mb GigaDevice GD25Q64CSIG -> 16mb
@@ -126,3 +143,31 @@ start end size name
 0x0040000 0x0050000 0x0010000 factory
 0x0050000 0x0fc0000 0x0f70000 firmware // fulsize firmware+storage=0xfb0000)
 0x0fc0000 0x1000000 0x0040000 storage
+
+###############################################################################
+
+TP-LINK TL-WR840N v6
+https://wikidevi.wi-cat.ru/TP-LINK_TL-WR840N_v6
+
+profiles/TP-LINK/TP-LINK_WR840N_V6.config
+profiles/TP-LINK/TP-LINK_WR840N_V6_SPI-16M.config
+
+UART 115200
+RAM 32mb (Zentel A3S56D40GTP) -> 64mb
+FLASH 4mb  (GigaDevice GD25Q32CSIG) -> 16mb
+
+PARTITONS:
+
+4mb
+start end size name
+0x0000000 0x0030000 0x0030000 bootloader // ATTENTION! stock uboot size is 100000
+0x0030000 0x03e0000 0x03b0000 firmware
+0x03e0000 0x03f0000 0x0010000 config
+0x03f0000 0x0400000 0x0010000 factory
+
+16mb
+start end size name
+0x0000000 0x0030000 0x0030000 bootloader
+0x0030000 0x0fe0000 0x0fb0000 firmware
+0x0fe0000 0x0ff0000 0x0010000 config
+0x0ff0000 0x1000000 0x0010000 factory
