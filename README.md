@@ -103,7 +103,7 @@ Double check the boot partition name 'Bootloader' by 'cat /proc/mtd', usually it
    ipv4 to 192.168.1.2, subnet mask 255.255.255.0 and gateway 192.168.1.1.
 2. Go to 192.168.1.1 from any browser and upload or upgrade your firmware. You can also upgrade your factory and u-boot
    partition from 192.168.1.1/factory.html and 192.168.1.1/uboot.html respectively.
-   For Xiaomi routers http server maybe reached by the 192.168.31.1 ip, it depend on envoriment from the Config/BootEnv partition values.
+   For Xiaomi routers http server maybe reached by the 192.168.31.1 ip, it depend on envoriment from the Config/BootEnv partition values.[br]
 ![1 jpg](https://user-images.githubusercontent.com/61657001/232837801-37d8ee25-8b42-406c-8d1a-945b4c31f26c.png)
 
 ![2 jpg](https://user-images.githubusercontent.com/61657001/232837816-029b2930-7ea9-46b4-bac2-b0d650ba0f3d.png)
