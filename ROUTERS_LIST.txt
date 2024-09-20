@@ -4,13 +4,15 @@ Xiaomi MI Router 3gv2 & Xiaomi MI Router 4a gigabit
 https://wikidevi.wi-cat.ru/Xiaomi_MiWiFi_4A
 
 profiles/XIAOMI/XIAOMI_MI-R4A.config
-
+profiles/XIAOMI/XIAOMI_MI-R4A_EXT.config
 
 UART 115200
 RAM 128mb
 FLASH 16mb
 
 PARTITONS:
+
+stock:
 start end size name
 0x0000000 0x0030000 0x0030000 Bootloader
 0x0030000 0x0040000 0x0010000 Config
@@ -21,18 +23,28 @@ start end size name
 0x0080000 0x0180000 0x0100000 overlay
 0x0180000 0x1000000 0x0E80000 OS1
 
+ext:
+start end size name
+0x0000000 0x0030000 0x0030000 Bootloader
+0x0030000 0x0040000 0x0010000 Config
+0x0040000 0x0050000 0x0010000 Factory
+0x0050000 0x1000000 0x0FB0000 firmare
+
 ###############################################################################
 
 Xiaomi Mi Router AC1200 & Xiaomi MI Router 4a gigabit V2
 https://wikidevi.wi-cat.ru/Xiaomi_Mi_Router_AC1200_(RB02)
 
 profiles/XIAOMI/XIAOMI_MI-R4AV2.config
+profiles/XIAOMI/XIAOMI_MI-R4AV2_EXT.config
 
 UART 115200
 RAM 128mb
 FLASH 16mb
 
 PARTITONS:
+
+stock:
 start end size name
 0x0000000 0x0030000 0x0030000 Bootloader
 0x0030000 0x0040000 0x0010000 KF
@@ -43,6 +55,13 @@ start end size name
 0x0080000 0x0180000 0x0100000 overlay
 0x0180000 0x0ff0000 0x0E70000 OS1
 0x0ff0000 0x1000000 0x0010000 Config
+
+ext:
+start end size name
+0x0000000 0x0030000 0x0030000 Bootloader
+0x0030000 0x0040000 0x0010000 Config
+0x0040000 0x0050000 0x0010000 Factory
+0x0050000 0x1000000 0x0FB0000 firmare
 
 ###############################################################################
 
