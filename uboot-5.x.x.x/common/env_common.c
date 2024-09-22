@@ -86,16 +86,16 @@ uchar default_environment[] = {
 	"loads_echo="	MK_STR(CONFIG_LOADS_ECHO)	"\0"
 #endif
 #ifdef	CONFIG_ETHADDR
-	"ethaddr="	MK_STR(CONFIG_ETHADDR)		"\0"
+	"ethaddr="	CONFIG_ETHADDR			"\0"
 #endif
 #ifdef	CONFIG_ETH1ADDR
-	"eth1addr="	MK_STR(CONFIG_ETH1ADDR)		"\0"
+	"eth1addr="	CONFIG_ETH1ADDR			"\0"
 #endif
 #ifdef	CONFIG_ETH2ADDR
-	"eth2addr="	MK_STR(CONFIG_ETH2ADDR)		"\0"
+	"eth2addr="	CONFIG_ETH2ADDR			"\0"
 #endif
 #ifdef	CONFIG_ETH3ADDR
-	"eth3addr="	MK_STR(CONFIG_ETH3ADDR)		"\0"
+	"eth3addr="	CONFIG_ETH3ADDR			"\0"
 #endif
 #ifdef	CONFIG_IPADDR
 	"ipaddr=" MK_STR(CONFIG_IPADDR)		"\0"
