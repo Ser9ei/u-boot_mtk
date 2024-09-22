@@ -977,7 +977,7 @@ fi
 			Ext1		SWITCH_CPU_PORT_EXT1 \
 			Ext2		SWITCH_CPU_PORT_EXT2
 			"
-
+    int  'Switch PHY address at MDIO Bus (0..29)' CONFIG_RTL8367_MDIO_PHYID 0
     int  'RGMII delay TX (0..1)'	SWITCH_RGMII_DELAY_TX	1
     int  'RGMII delay RX (0..7)'	SWITCH_RGMII_DELAY_RX	0
 

@@ -14,6 +14,12 @@
 
 #if defined(MDC_MDIO_OPERATION)
 
+#if defined(CONFIG_RTL8367_MDIO_PHYID)
+#define MDIO_RTL8367_PHYID CONFIG_RTL8367_MDIO_PHYID
+#else
+#define MDIO_RTL8367_PHYID 0
+#endif
+
 extern u32 mii_mgr_read(u32 phy_addr, u32 phy_register, u32 *read_data);
 extern u32 mii_mgr_write(u32 phy_addr, u32 phy_register, u32 write_data);
 
@@ -33,13 +39,14 @@ extern u32 mii_mgr_write(u32 phy_addr, u32 phy_register, u32 write_data);
 #define MDC_MDIO_READ(a, b, c, d)	mii_mgr_read(b, c, d);
 #define MDC_MDIO_WRITE(a, b, c, d)	mii_mgr_write(b, c, d);
 
-static const u32 g_phy_id = 0;
+
+static const u32 g_phy_id = MDIO_RTL8367_PHYID;
 
 void smi_init(const char *asic_name)
 {
 	gpio_init_mdio();
 
-	printf("\n %s GSW control i/f: %s\n", asic_name, "MDIO");
+	printf("\n %s GSW control i/f: %s (PHY Address: %d) \n", asic_name, "MDIO", g_phy_id);
 }
 
 int smi_read(rtk_uint32 addr, rtk_uint32 *data)
