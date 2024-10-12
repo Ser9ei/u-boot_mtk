@@ -1811,6 +1811,10 @@ define_hex TEXT_BASE  0xBC000000
 fi
 
 fi
+bool 'Allow env overwriting'			CONFIG_ENV_OVERWRITE			y
+if [ "$CONFIG_ENV_OVERWRITE" = "y" ]; then
+bool 'Allow setting ethaddr env only once'	CONFIG_OVERWRITE_ETHADDR_ONCE		n
+fi
 ##################################################################################################
 comment ""
 bool 'HTTPD server'		HTTPD_SUPPORT		n

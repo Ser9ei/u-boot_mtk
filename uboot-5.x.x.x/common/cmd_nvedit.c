@@ -195,7 +195,7 @@ int _do_setenv (int flag, int argc, char *argv[])
 		if ( (strcmp (name, "serial#") == 0) ||
 		    ((strcmp (name, "ethaddr") == 0)
 #if defined(CONFIG_OVERWRITE_ETHADDR_ONCE) && defined(CONFIG_ETHADDR)
-		     && (strcmp (env_get_addr(oldval),MK_STR(CONFIG_ETHADDR)) != 0)
+		     && (strcmp (env_get_addr(oldval),CONFIG_ETHADDR) != 0)
 #endif	/* CONFIG_OVERWRITE_ETHADDR_ONCE && CONFIG_ETHADDR */
 		    ) ) {
 			printf ("Can't overwrite \"%s\"\n", name);
